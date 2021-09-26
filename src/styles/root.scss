@@ -54,3 +54,13 @@ div {
   cursor: pointer;
   background-color: #90a4ae;
 }
+
+.bird-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .name {
+    font-weight: bold;
+  }
+}
