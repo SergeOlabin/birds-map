@@ -39,7 +39,7 @@ const SidebarComponent: React.FC<ISidebarComponentProps> = ({ }) => {
   return (
     <>
       <div className="sidebar" onScroll={onScroll}>
-        {birds?.map(b => <div onClick={() => setActiveBird(b)}>
+        {birds?.map(b => <div onClick={() => setActiveBird(b)}  key={JSON.stringify(b.location)}>
           <BirdComponent bird={b}></BirdComponent>
         </div>)}
 

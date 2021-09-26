@@ -17,17 +17,13 @@ div {
   margin-bottom: $spacing * 2;
   margin-left: $spacing * 2;
 
-  .main-view {
-
-  }
-
   .sidebar {
     /* background:green; */
     flex-basis:33.33%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    border: dashed grey;
+    // border: dashed grey;
     overflow-y: scroll;
     /* max-width: 33vw; */
 
@@ -36,6 +32,12 @@ div {
     .bird-container {
       margin-bottom: $spacing;
     }
+
+
+  }
+
+  .main-view {
+    margin-left: $spacing * 3;
   }
 }
 
@@ -44,7 +46,8 @@ div {
 .main-view {
   flex-basis:66.66%;
   height: 100%;
-  border: dashed black;
+  // border: dashed black;
+  // margin-left: $spacing;
 
 }
 
@@ -63,4 +66,8 @@ div {
   .name {
     font-weight: bold;
   }
+}
+
+#map {
+  min-height: 500px;
 }

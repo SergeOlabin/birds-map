@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { ActiveBirdContext } from '../providers/active-bird.provider';
+import { BirdMap } from './BirdMap';
 import { BirdPanel } from './BirdPanel';
 
 export interface IMainViewProps {
@@ -13,7 +14,10 @@ export const MainView: React.FC<IMainViewProps> = ({ }) => {
     <>
       <div className="main-view">
         {activeBird &&
-          <BirdPanel bird={activeBird}/>
+          (<>
+            <BirdPanel bird={activeBird} />
+            <BirdMap bird={activeBird}/>
+          </>)
         }
       </div>
     </>
