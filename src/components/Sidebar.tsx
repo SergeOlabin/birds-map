@@ -15,28 +15,24 @@ const SidebarComponent: React.FC<ISidebarComponentProps> = ({  }) => {
     const res = await (await fetch('https://zapari.any.do/birds/20')).json();
     const fetchedBirds: IBird[] = res.items;
 
+    console.log('fetching birds', birds, fetchedBirds)
+
     setBirds([...birds, ...fetchedBirds]);
-  }, []);
-
-
+  }, [birds]);
 
   const onScroll = (event: React.UIEvent<HTMLDivElement>) => {
-
     // TODO: Check typings
     const target = event.target as HTMLElement;
 
     if (target.scrollHeight - target.scrollTop === target.clientHeight) {
-      console.log('BOTTOM')
+      console.log('BOTTOM');
+      fetchBirds();
     }
-
-
   }
-
-
 
   useEffect(() => {
     fetchBirds();
-  }, [fetchBirds]);
+  }, []);
 
 
   return (
