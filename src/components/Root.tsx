@@ -13,7 +13,6 @@ export const Root: React.FC<IRootProps> = ({  }) => {
 
   return (
     <div className="root">
-
       <ActiveBirdProvider>
         <Sidebar></Sidebar>
         <MainView></MainView>

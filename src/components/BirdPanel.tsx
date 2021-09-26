@@ -8,7 +8,7 @@ export interface IBirdComponentProps {
 export const BirdPanel: React.FC<IBirdComponentProps> = ({ bird }) => {
   return (
     <>
-      <div className="bird-container">
+      <div className="bird-panel">
         {bird.name}
 
       </div>
