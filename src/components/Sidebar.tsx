@@ -1,4 +1,5 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { ActiveBirdContext } from '../providers/active-bird.provider';
 import { IBird } from '../types/birds';
 import { BirdComponent } from './Bird';
 
@@ -8,8 +9,9 @@ export interface ISidebarComponentProps {
 
 // TODO: key / ids
 
-const SidebarComponent: React.FC<ISidebarComponentProps> = ({  }) => {
+const SidebarComponent: React.FC<ISidebarComponentProps> = ({ }) => {
   const [birds, setBirds] = useState<IBird[]>([]);
+  const { setActiveBird } = useContext(ActiveBirdContext);
 
   const fetchBirds = useCallback(async () => {
     const res = await (await fetch('https://zapari.any.do/birds/20')).json();
@@ -34,11 +36,12 @@ const SidebarComponent: React.FC<ISidebarComponentProps> = ({  }) => {
     fetchBirds();
   }, []);
 
-
   return (
     <>
       <div className="sidebar" onScroll={onScroll}>
-        {birds?.map(b => <BirdComponent bird={b}></BirdComponent>)}
+        {birds?.map(b => <div onClick={() => setActiveBird(b)}>
+          <BirdComponent bird={b}></BirdComponent>
+        </div>)}
 
       </div>
     </>

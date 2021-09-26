@@ -1,17 +1,18 @@
-import React from 'react';
-import { IBird } from '../types/birds';
-import { BirdComponent } from './Bird';
+import React, { useContext } from 'react';
+import { ActiveBirdContext } from '../providers/active-bird.provider';
 
 export interface IMainViewProps {
-  activeBird: IBird | null,
+  // activeBird: IBird | null,
 }
 
-export const MainView: React.FC<IMainViewProps> = ({ activeBird }) => {
+export const MainView: React.FC<IMainViewProps> = ({ }) => {
+  const { activeBird } = useContext(ActiveBirdContext);
+
   return (
     <>
       <div className="main-view">
         {activeBird &&
-          <BirdComponent bird={activeBird}></BirdComponent>
+          activeBird.name
         }
       </div>
     </>
