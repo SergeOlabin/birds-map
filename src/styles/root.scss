@@ -1,3 +1,5 @@
+@import './palette.scss';
+
 $spacing: 10px;
 
 div {
@@ -5,16 +7,16 @@ div {
 }
 
 .root {
-  width: 100vh;
+  width: calc(100% - $spacing * 2);
   /* will be changed */
   /* height: 100vh; */
   /* TODO: calc latter */
-  height: calc(100vh - 40px);
+  height: calc(100vh - $spacing * 2);
   align-items: center;
   display:flex;
   justify-content: flex-start;
   margin-top: $spacing * 2;
-  margin-bottom: $spacing * 2;
+  // margin-bottom: $spacing * 2;
   margin-left: $spacing * 2;
 
   .sidebar {
@@ -37,18 +39,26 @@ div {
   }
 
   .main-view {
-    margin-left: $spacing * 3;
+    padding-left: $spacing * 3;
   }
 }
-
 
 
 .main-view {
   flex-basis:66.66%;
   height: 100%;
-  // border: dashed black;
-  // margin-left: $spacing;
+  display: flex;
+  flex-direction: column;
 
+  .bird-map {
+    flex-grow: 1;
+    padding: $spacing * 2 0;
+    background-color: $map-background;
+
+    #map {
+      min-height: 100%;
+    }
+  }
 }
 
 .bird-container {
@@ -66,8 +76,4 @@ div {
   .name {
     font-weight: bold;
   }
-}
-
-#map {
-  min-height: 500px;
 }

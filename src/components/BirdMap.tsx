@@ -50,8 +50,10 @@ export const BirdMap: React.FC<IBirdMapProps> = ({ bird }) => {
 
   return (
     <>
-      {/* google maps renders here */}
-      <div id="map"></div>
+      <div className="bird-map">
+        {/* google maps renders here */}
+        <div id="map"></div>
+      </div>
     </>
   );
 };

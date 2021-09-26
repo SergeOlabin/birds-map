@@ -1,7 +1,7 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { ActiveBirdContext } from '../providers/active-bird.provider';
 import { IBird } from '../types/birds';
-import { BirdComponent } from './Bird';
+import { BirdPanel } from './BirdPanel';
 
 export interface ISidebarComponentProps {
 
@@ -40,7 +40,7 @@ const SidebarComponent: React.FC<ISidebarComponentProps> = ({ }) => {
     <>
       <div className="sidebar" onScroll={onScroll}>
         {birds?.map(b => <div onClick={() => setActiveBird(b)}  key={JSON.stringify(b.location)}>
-          <BirdComponent bird={b}></BirdComponent>
+          <BirdPanel bird={b}></BirdPanel>
         </div>)}
 
       </div>
