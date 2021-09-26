@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { IBird } from '../types/birds';
 import { BirdComponent } from './Bird';
-import '../styles/sidebar.sass';
 
 export interface ISidebarComponentProps {
 
 }
+
+// TODO: key / ids
 
 const SidebarComponent: React.FC<ISidebarComponentProps> = ({  }) => {
   const [birds, setBirds] = useState<IBird[]>([]);
@@ -25,8 +26,10 @@ const SidebarComponent: React.FC<ISidebarComponentProps> = ({  }) => {
 
   return (
     <>
-    <div className="sidebar"></div>
-      {birds?.map(b => <BirdComponent bird={b}></BirdComponent>)}
+      <div className="sidebar">
+        {birds?.map(b => <BirdComponent bird={b}></BirdComponent>)}
+
+      </div>
     </>
   );
 };
